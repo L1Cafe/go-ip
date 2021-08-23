@@ -75,7 +75,7 @@ func returnFullInfo(w http.ResponseWriter, r *http.Request) {
 	ip, err := getIpFromRequest(r)
 	if err == nil {
 		io.WriteString(w, "------------------------------------\n")
-		io.WriteString(w, "IP: ")
+		io.WriteString(w, "IP : ")
 		io.WriteString(w, ip)
 		io.WriteString(w, "\n")
 	} else {
