@@ -72,7 +72,8 @@ func getIpFromRequest(r *http.Request) (string, error) {
 func getAnyFromRequest(r *http.Request) (string, error) {
 	var ip string
 	var err error
-	try_headers := []string{"X-Forwarded-For", "X-Real-Ip", "X-True-Client-Ip", "True-Client-Ip", "X-Originating-Ip", "X-Remote-Ip", "X-Remote-Addr"}
+	try_headers := []string{"X-Forwarded-For", "X-Real-Ip", "X-True-Client-Ip",
+		"True-Client-Ip", "X-Originating-Ip", "X-Remote-Ip", "X-Remote-Addr"}
 	// Forwarded (??)
 	headers := r.Header
 
@@ -92,7 +93,6 @@ func getAnyFromRequest(r *http.Request) (string, error) {
 // returnIp is the most basic functionality for this application, located at
 // the root directory
 func returnIp(w http.ResponseWriter, r *http.Request) {
-	// TODO: need to check for other ways of getting the IP
 	if r.URL.Path != "/" {
 		// redirect just in case
 		// may add functionality later, that's why it's a temporary redirect
